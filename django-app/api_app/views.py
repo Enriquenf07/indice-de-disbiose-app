@@ -15,18 +15,6 @@ from django.contrib.auth.hashers import check_password
 from .utils import Bacteria, BacteriaService
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [IsAuthenticated]
-
-
 class SampleView(APIView):
     parser_classes = [JSONParser]
 
